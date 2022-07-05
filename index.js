@@ -20,7 +20,7 @@ module.exports = function md_align_plugin(md, options) {
                     } else if (name == 'center') {
                         return '<div class="">\n';
                     } else {
-                        return '<div class="alert alert-' + name + '">\n';
+                        return '<div class="collapse alert alert-' + name + '" id="md-tips-' + name + '"><a class="btn btn-primary" data-bs-toggle="collapse" href="md-tips-' + name + '" role="button" aria-expanded="false" aria-controls="md-tips-' + name + '">Link with href</a>\n';
                     }
                 } else {
                     return '</div>\n';
