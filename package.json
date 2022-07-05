@@ -1,0 +1,32 @@
+{
+  "name": "markdown-it-tips-bulma",
+  "version": "1.0.3",
+  "description": "Markdown-it plugin to create tips.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/openordu/markdown-it-tips-bulma.git"
+  },
+  "keywords": [
+    "markdown-it-plugin",
+    "markdown-it",
+    "markdown",
+    "tip",
+    "message"
+  ],
+  "author": {
+    "name": "patchshorts",
+    "email": "patchshorts@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/openordu/markdown-it-tips-bulma/issues"
+  },
+  "homepage": "https://github.com/openordu/markdown-it-tips-bulma#readme",
+  "dependencies": {
+    "markdown-it-container": "^2.0.0"
+  }
+}
