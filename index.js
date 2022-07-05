@@ -19,8 +19,10 @@ module.exports = function md_align_plugin(md, options) {
                         return '<div class="float-start">\n';
                     } else if (name == 'center') {
                         return '<div class="">\n';
+                    } else if (name == 'collapseinfo') {
+                        return '<div class="collapse alert alert-' + name + '" id="md-tips-' + name + '"><a class="btn btn-primary" data-bs-toggle="collapse" href="md-tips-' + name + '" role="button" aria-expanded="false" aria-controls="md-tips-' + name + '">Show details</a>\n';
                     } else {
-                        return '<div class="collapse alert alert-' + name + '" id="md-tips-' + name + '"><a class="btn btn-primary" data-bs-toggle="collapse" href="md-tips-' + name + '" role="button" aria-expanded="false" aria-controls="md-tips-' + name + '">Hide</a>\n';
+                        return '<div class="alert alert-' + name + '" id="md-tips-' + name + '">Show details</a>\n';
                     }
                 } else {
                     return '</div>\n';
@@ -56,6 +58,7 @@ module.exports = function md_align_plugin(md, options) {
         setupContainer('danger');
         setupContainer('warning');
         setupContainer('info');
+        setupContainer('collapseinfo');
         setupContainer('light');
         setupContainer('dark');
         setupContainer('right');
