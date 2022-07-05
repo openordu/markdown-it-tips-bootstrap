@@ -1,5 +1,5 @@
 {
-  "name": "markdown-it-tips-bulma",
+  "name": "markdown-it-tips-bootstrap",
   "version": "1.0.3",
   "description": "Markdown-it plugin to create tips.",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/openordu/markdown-it-tips-bulma.git"
+    "url": "git+https://github.com/openordu/markdown-it-tips-bootstrap.git"
   },
   "keywords": [
     "markdown-it-plugin",
@@ -23,9 +23,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/openordu/markdown-it-tips-bulma/issues"
+    "url": "https://github.com/openordu/markdown-it-tips-bootstrap/issues"
   },
-  "homepage": "https://github.com/openordu/markdown-it-tips-bulma#readme",
+  "homepage": "https://github.com/openordu/markdown-it-tips-bootstrap#readme",
   "dependencies": {
     "markdown-it-container": "^2.0.0"
   }
