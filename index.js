@@ -3,8 +3,8 @@
 var container = require('markdown-it-container');
 
 function getRandomInt() {
-    min = Math.ceil(1);
-    max = Math.floor(1000);
+    var min = Math.ceil(1);
+    var max = Math.floor(1000);
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 module.exports = function md_align_plugin(md, options) {
