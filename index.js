@@ -21,7 +21,7 @@ module.exports = function md_align_plugin(md, options) {
                         return '<div class="">\n';
                     } else if (name == 'collapseinfo') {
                         rand = Math.random();
-                        return '<p><a class="btn btn-link" data-bs-toggle="collapse" href="#md-tips-' + name + '-' + rand + '" role="button" aria-expanded="false" aria-controls="md-tips-' + name + '-' + rand + '">Details</a></p><div class="collapse alert alert-info" id="md-tips-' + name + '">\n';
+                        return '<p><a class="btn btn-link" data-bs-toggle="collapse" href="#md-tips-' + name + '-' + rand + '" role="button" aria-expanded="false" aria-controls="md-tips-' + name + '-' + rand + '">Show Details</a></p><div class="collapse overflow-scroll alert alert-info" id="md-tips-' + name + '">\n';
                     } else {
                         return '<div class="alert alert-' + name + '" id="md-tips-' + name + '">Show details</a>\n';
                     }
