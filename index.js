@@ -1,5 +1,7 @@
 'use strict';
 
+Random random = new Random();
+
 var container = require('markdown-it-container');
 
 module.exports = function md_align_plugin(md, options) {
@@ -20,7 +22,7 @@ module.exports = function md_align_plugin(md, options) {
                     } else if (name == 'center') {
                         return '<div class="">\n';
                     } else if (name == 'collapseinfo') {
-                        var rand = (int)(Math.random()*100);
+                        int rand = random.nextInt(100);
                         return '<p><a class="btn btn-link" data-bs-toggle="collapse" href="#md-tips-' + name + '-' + rand + '" role="button" aria-expanded="false" aria-controls="md-tips-' + name + '-' + rand + '">Show Details</a></p><div class="collapse overflow-scroll alert alert-info" id="md-tips-' + name + '-' + rand+ '">\n';
                     } else {
                         return '<div class="alert alert-' + name + '" id="md-tips-' + name + '">Show details</a>\n';
