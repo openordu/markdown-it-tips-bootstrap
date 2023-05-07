@@ -16,8 +16,8 @@ function getIconClass(name) {
         'success': 'fas fa-check-circle',
         'danger': 'fas fa-exclamation-triangle',
         'warning': 'fas fa-exclamation-circle',
-        'info': 'fas fa-info',
-        'collapseinfo': 'fas fa-info',
+        'info': 'fas fa-circle-info',
+        'collapseinfo': 'fas fa-circle-info',
         'light': 'fas fa-sun',
         'dark': 'fas fa-moon'
     };
