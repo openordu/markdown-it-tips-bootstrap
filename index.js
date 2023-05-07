@@ -17,12 +17,11 @@ function getIconClass(name) {
         'danger': 'fas fa-exclamation-triangle',
         'warning': 'fas fa-exclamation-circle',
         'info': 'fas fa-circle-info',
-        'collapseinfo': 'fas fa-circle-info',
         'light': 'fas fa-sun',
         'dark': 'fas fa-moon'
     };
 
-    return icons[name] || '';
+    return icons[name] || 'fas fa-circle-info';
 }
 
 module.exports = function md_bootstrap_boxes_plugin(md, options) {
