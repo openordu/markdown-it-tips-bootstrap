@@ -19,7 +19,7 @@ function getIconClass(name) {
         'info': 'fas fa-circle-info',
         'light': 'fas fa-sun',
         'dark': 'fas fa-moon',
-        'details': 'fas fa-sun'
+        'details': 'fas fa-memo-circle-info',
     };
 
     return icons[name] || 'fas fa-circle-info';
@@ -51,7 +51,7 @@ module.exports = function md_bootstrap_boxes_plugin(md, options) {
                     } else if (name === 'center') {
                         return '<div class="text-center">\n';
                     } else if (name === 'details') {
-                        return `<div class="alert alert-info" id="md-tips-${name}"><p class="lead"><i class="icon fa-solid fa-${iconClass}"></i>${titleText}</p>\n`;
+                        return `<div class="alert alert-primary" id="md-tips-${name}"><p class="lead"><i class="icon fa-solid fa-${iconClass}"></i>${titleText}</p>\n`;
                     } else if (name === "collapseinfo") {
                         if (titleText == "collapseinfo") {
                             titleText = titleText === "" ? "Show more" : titleText;
