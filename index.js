@@ -18,7 +18,8 @@ function getIconClass(name) {
         'warning': 'fas fa-exclamation-circle',
         'info': 'fas fa-circle-info',
         'light': 'fas fa-sun',
-        'dark': 'fas fa-moon'
+        'dark': 'fas fa-moon',
+        'details': 'fas fa-sun'
     };
 
     return icons[name] || 'fas fa-circle-info';
@@ -45,8 +46,12 @@ module.exports = function md_bootstrap_boxes_plugin(md, options) {
                         return '<div class="float-start">\n';
                     } else if (name === 'right') {
                         return '<div class="float-end">\n';
+                    } else if (name === 'pre') {
+                        return '<div class="preformatted">\n';
                     } else if (name === 'center') {
                         return '<div class="text-center">\n';
+                    } else if (name === 'details') {
+                        return `<div class="alert alert-info" id="md-tips-${name}"><p class="lead"><i class="icon fa-solid fa-${iconClass}"></i>${titleText}</p>\n`;
                     } else if (name === "collapseinfo") {
                         if (titleText == "collapseinfo") {
                             titleText = titleText === "" ? "Show more" : titleText;
@@ -87,6 +92,8 @@ module.exports = function md_bootstrap_boxes_plugin(md, options) {
 
     function init() {
         setupContainer('tip');
+        setupContainer('pre');
+        setupContainer('details');
         setupContainer('primary');
         setupContainer('secondary');
         setupContainer('success');
