@@ -85,7 +85,41 @@ module.exports = function md_bootstrap_boxes_plugin(md, options) {
         };
     }
 
+    function setupCarouselContainer() {
+        md.use(container, 'carousel', {
+            render: function (tokens, idx) {
+                if (tokens[idx].nesting === 1) {
+                    var rand = getRandomInt();
+                    firstSlide = true; // Reset firstSlide to true whenever a new carousel starts
+                    return `<div id="carousel-${rand}" class="carousel slide" data-bs-ride="carousel"><div class="carousel-inner">\n`;
+                } else {
+                    return `</div><button class="carousel-control-prev" type="button" data-bs-target="#carousel-${rand}" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Previous</span></button><button class="carousel-control-next" type="button" data-bs-target="#carousel-${rand}" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Next</span></button></div>\n`;
+                }
+            }
+        });
+    
+        let firstSlide = true;
+    
+        md.use(container, 'slide', {
+            render: function (tokens, idx) {
+                if (tokens[idx].nesting === 1) {
+                    const slideInfo = tokens[idx].info.trim().substring(5).trim();
+                    const slideParts = slideInfo.split('|');
+                    const slideText = slideParts[0];
+                    const interval = slideParts.length > 1 ? parseInt(slideParts[1]) * 1000 : ''; // Get the interval in milliseconds, if provided
+                    const isActive = firstSlide ? ' active' : '';
+                    firstSlide = false;
+    
+                    return `<div class="carousel-item${isActive}" data-bs-interval="${interval}"><div class="carousel-caption d-flex h-100 align-items-center justify-content-center"><h5>${slideText}</h5></div>\n`;
+                } else {
+                    return '</div>\n';
+                }
+            }
+        });
+    }
+
     function init() {
+        setupCarouselContainer();
         setupContainer('tip');
         setupContainer('primary');
         setupContainer('secondary');
