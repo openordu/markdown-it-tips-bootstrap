@@ -123,8 +123,44 @@ module.exports = function md_bootstrap_boxes_plugin(md, options) {
         });
     }
 
+    function setupTabsContainer() {
+        let tabGroupId = `tabGroup-${getRandomInt()}`;
+    
+        md.use(container, 'tabs', {
+            render: function (tokens, idx) {
+                if (tokens[idx].nesting === 1) {
+                    return `<ul class="nav nav-tabs" id="${tabGroupId}" role="tablist">\n`;
+                } else {
+                    return '</ul><div class="tab-content" id="myTabContent">\n';
+                }
+            }
+        });
+    
+        let firstTab = true;
+    
+        md.use(container, 'tab', {
+            render: function (tokens, idx) {
+                if (tokens[idx].nesting === 1) {
+                    const tabName = tokens[idx].info.trim().substring(3).trim();
+                    const tabId = `tab-${getRandomInt()}`;
+                    const isActive = firstTab ? ' active' : '';
+                    firstTab = false;
+    
+                    return `<li class="nav-item" role="presentation">
+                                <button class="nav-link${isActive}" id="${tabId}" data-bs-toggle="tab" data-bs-target="#${tabId}-pane" type="button" role="tab" aria-controls="${tabId}-pane" aria-selected="${isActive ? 'true' : 'false'}">${tabName}</button>
+                            </li>\n</ul><div class="tab-pane fade${isActive ? ' show active' : ''}" id="${tabId}-pane" role="tabpanel" aria-labelledby="${tabId}" tabindex="0">\n`;
+                } else {
+                    firstTab = true; // Reset firstTab to true when a tab ends
+                    return '</div>\n';
+                }
+            }
+        });
+    }
+    
+
     function init() {
         setupCarouselContainer();
+        setupTabsContainer();
         setupContainer('tip');
         setupContainer('pre');
         setupContainer('details');
